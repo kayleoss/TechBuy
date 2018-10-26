@@ -1,0 +1,106 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Krub', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+}
+
+a {
+  color: rgb(8, 106, 218);
+  transition: color 0.5s linear;
+}
+
+a:hover {
+  color: rgb(0, 195, 255);
+  text-decoration: none;
+}
+
+header {
+  background: url("/assets/home-background-copy.jpg");
+  background-size: cover;
+  height: 450px;
+  background-position: center center;
+}
+
+.purple-color {
+  color: #5b14de;
+}
+
+.block {
+  display: block;
+}
+
+.h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #5b14de;
+}
+
+.product-box {
+  background: #fff;
+  border-radius: 5px;
+}
+
+.box-shadow {
+  box-shadow: 0px 0px 0px rgb(211, 211, 211), 0px 0px 1px rgb(211, 211, 211), 0px 1px 2px lightgrey, 1px 2px 15px rgb(228, 225, 225);
+}
+
+.grey-background {
+  background: rgb(244, 250, 250);
+}
+
+.cta-link {
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 25px;
+  background: #5b14de;
+  color: #ffffff;
+}
+
+.swiper-slide {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.slick-dots li.slick-active button:before {
+    color: #5b14de;
+    font-size: 1rem;
+}
+.slick-dots li button:before {
+    color: #5b14de;
+    font-size: 0.6rem;
+}
+
+.product-img {
+    max-height: 100px;
+    max-width: 80%;
+  }
+
+@media (min-width: 1100px) {
+  .product-box {
+    height: 470px;
+  }
+}
+@media (max-width:500px) {
+  main {
+    width: 100%;
+    overflow-x: hidden;
+  }
+}
