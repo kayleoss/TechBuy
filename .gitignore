@@ -20,3 +20,7 @@ yarn-error.log*
 
 #api key
 /src/apiCredentials/
+
+#mac files
+.DS_Store
+**/.DS_Store

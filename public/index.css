@@ -7,6 +7,11 @@ body {
   font-size: 16px;
 }
 
+main {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
 a {
   color: rgb(8, 106, 218);
   transition: color 0.5s linear;
@@ -64,6 +69,13 @@ header {
   color: #ffffff;
 }
 
+.product-button {
+  width: 150px;
+  background: rgba(232, 232, 232, 0.3);
+  padding: 8px 15px;
+  box-shadow: 0 0 8px #634884;
+}
+
 .swiper-slide {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -96,11 +108,5 @@ header {
 @media (min-width: 1100px) {
   .product-box {
     height: 470px;
-  }
-}
-@media (max-width:500px) {
-  main {
-    width: 100%;
-    overflow-x: hidden;
   }
 }
