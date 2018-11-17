@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {apiKey} from "../apiCredentials/featured";
 import Product from './Product';
 
 export default class Computers extends Component {

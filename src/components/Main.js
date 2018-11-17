@@ -3,7 +3,7 @@ import Featured from './Featured';
 import Footer from './Footer';
 import Nav from './Nav';
 import Home from './Home';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route} from "react-router-dom";
 import {apiKey} from '../apiCredentials/featured';
 import Products from './Products';
 
