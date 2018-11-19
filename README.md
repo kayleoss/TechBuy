@@ -10,3 +10,7 @@ To dev, you must get an API Key from Best Buy API. Sign up with your work/profes
 In featured.js, export a constant: 
 
 export const apiKey = "";   <-- your api key goes there
+
+
+TODO: 
+- Pull deals and sales from sites other than bestbuy
