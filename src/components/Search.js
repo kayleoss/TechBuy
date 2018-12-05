@@ -8,13 +8,22 @@ export default class Search extends Component {
         keyword: "",
         errorMessage: "",
         categoryPath: "",
-        products: []
+        products: [],
+        loading: false
     }
 
     handleSearch = () => {
+        this.setState({loading: true})
         fetch("https://api.bestbuy.com/v1/products(search=" + this.state.keyword +  "&categoryPath.id=" + this.state.categoryPath + ")?apiKey=" + apiKey + "&sort=name.asc&pageSize=12&format=json")
         .then(res => res.json())
-        .then(res => this.setState({products: res.products}))
+        .then(res => {
+            this.setState({loading: false})
+            if (res.products.length < 1) {
+                return this.setState({errorMessage: "No results found", products: []})
+            } 
+            this.setState({products: res.products})
+            this.setState({errorMessage: ""})
+        })
     }
 
     validateSearch = (e) => {
@@ -56,7 +65,6 @@ export default class Search extends Component {
     render() {
         const categories = ["Computers", "Cameras", "Headphones", "Audio", "Laptops", "Tablets", "Speakers"];
         return (
-            <div>
             <section className="container search p-5">
                 <h3 className="text-center pt-3 h3">Search For Products</h3>
                 <hr />
@@ -71,11 +79,9 @@ export default class Search extends Component {
                 <form className="form-group mt-3" onSubmit={this.validateSearch}>
                     <input onChange={(e) => this.setState({keyword: e.currentTarget.value})} className="form-control inline w-75 mr-3 box-shadow border-0" type="text" name="keyword" placeholder="Keyword search..." aria-label="Enter keyword" required />
                     <button type="button" onClick={this.validateSearch} className="btn box-shadow border-0 inline text-light small-device-margin-top" style={{background: this.props.headerColor}}>Search</button>
-                    <p className="text-danger mt-3">{this.state.errorMessage}</p>
+                    {this.state.loading ? <p className="text-dark mt-3">Searching...</p> : <p className="text-danger mt-3">{this.state.errorMessage}</p>} 
                 </form>
-            </section>
-            <section className="p-5 grey-background">
-                <div className="container">
+                <div className="container mt-5">
                     <div className="row pb-3">
                         {this.state.products ?  this.state.products.map(product => (
                             <div className="col-sm-4 mt-3" key={product.sku}>
@@ -92,9 +98,7 @@ export default class Search extends Component {
                         )) : ""}
                     </div>
                 </div>
-                <hr />
             </section>
-            </div>
         )
     }
 }
