@@ -7,14 +7,13 @@ export default class Search extends Component {
         category: null,
         keyword: "",
         errorMessage: "",
-        categoryPath: "",
         products: [],
         loading: false
     }
 
     handleSearch = () => {
         this.setState({loading: true})
-        fetch("https://api.bestbuy.com/v1/products(search=" + this.state.keyword +  "&categoryPath.id=" + this.state.categoryPath + ")?apiKey=" + apiKey + "&sort=name.asc&pageSize=12&format=json")
+        fetch("https://api.bestbuy.com/v1/products(search=" + this.state.keyword +  "&categoryPath.id=" + this.state.category + ")?apiKey=" + apiKey + "&sort=name.asc&pageSize=12&format=json")
         .then(res => res.json())
         .then(res => {
             this.setState({loading: false})
@@ -25,38 +24,9 @@ export default class Search extends Component {
         })
     }
 
-    handleCategory = (e) => {
-        this.setState({category: e.currentTarget.value});
-        switch (e.currentTarget.value) {
-            case "Computers":
-                this.setState({categoryPath: "abcat0501000"})
-                break;
-            case "Cameras": 
-                this.setState({categoryPath: "abcat0401000"})
-                break;
-            case "Headphones": 
-                this.setState({categoryPath: "abcat0204000"})
-                break;
-            case "Audio": 
-                this.setState({categoryPath: "pcmcat241600050001"})
-                break;
-            case "Laptops": 
-                this.setState({categoryPath: "abcat0502000"})
-                break;
-            case "Tablets": 
-                this.setState({categoryPath: "pcmcat209000050006"})
-                break;
-            case "Speakers": 
-                this.setState({categoryPath: "pcmcat310200050004"})
-                break;
-            default:
-                this.setState({categoryPath: ""})
-        }
-    }
-
     validateSearch = (e) => {
         e.preventDefault()
-        if (this.state.category === null || this.state.category === "") {
+        if (this.state.category === null) {
             return this.setState({errorMessage: "Please select category"})
         } else if (this.state.keyword === "") {
             return this.setState({errorMessage: "Please enter search term"})
@@ -65,7 +35,15 @@ export default class Search extends Component {
     }
 
     render() {
-        const categories = ["Computers", "Cameras", "Headphones", "Audio", "Laptops", "Tablets", "Speakers"];
+        const categories = [
+            {name: "Computers", path: "abcat0501000"}, 
+            {name: "Cameras", path: "abcat0401000"}, 
+            {name: "Headphones", path: "abcat0204000"}, 
+            {name: "Audio", path: "pcmcat241600050001"}, 
+            {name: "Laptops", path: "abcat0502000"}, 
+            {name: "Tablets", path: "pcmcat209000050006"}, 
+            {name: "Speakers", path: "pcmcat310200050004"}
+        ];
         return (
             <section className="container search p-5">
                 <h3 className="text-center pt-3 h3">Search For Products</h3>
@@ -73,8 +51,8 @@ export default class Search extends Component {
                 <div className="row mt-3">
                     {categories.map(category => (
                         <div className="col-sm-4" key={categories.indexOf(category)}>
-                            <input type="radio" className="inline mr-3" name="category" value={category} aria-label={category + " category"} onChange={this.handleCategory} />
-                            <label htmlFor="computers" className="inline">{category}</label>
+                            <input type="radio" className="inline mr-3" name="category" value={category.path} aria-label={category.name + " category"} onChange={(e) => this.setState({category: e.currentTarget.value})} />
+                            <label htmlFor="computers" className="inline">{category.name}</label>
                         </div>
                     ))}
                 </div>

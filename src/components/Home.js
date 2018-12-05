@@ -18,7 +18,7 @@ const Home = (props) => (
 					<div className="col"></div>
 					<div className="col-md-5 col-sm-12 mt-5 pt-4">
 						<h1 className="h3 mt-5">Never pay full price for tech again</h1>
-						<p>Using a variety of vendors like Best Buy, Amazon, Ebay, and more, we put together the best tech deals for you.</p>
+						<p>Using a variety of vendors from around the world, we put together the best tech deals for you.</p>
 					</div>
 				</div>
 			</div>
