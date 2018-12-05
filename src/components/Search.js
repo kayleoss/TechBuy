@@ -42,7 +42,8 @@ export default class Search extends Component {
             {name: "Audio", path: "pcmcat241600050001"}, 
             {name: "Laptops", path: "abcat0502000"}, 
             {name: "Tablets", path: "pcmcat209000050006"}, 
-            {name: "Speakers", path: "pcmcat310200050004"}
+            {name: "Speakers", path: "pcmcat310200050004"},
+            {name: "Phones", path: "pcmcat209400050001"},
         ];
         return (
             <section className="container search p-5">
@@ -50,7 +51,7 @@ export default class Search extends Component {
                 <hr />
                 <div className="row mt-3">
                     {categories.map(category => (
-                        <div className="col-sm-4" key={categories.indexOf(category)}>
+                        <div className="col-sm-3" key={categories.indexOf(category)}>
                             <input type="radio" className="inline mr-3" name="category" value={category.path} aria-label={category.name + " category"} onChange={(e) => this.setState({category: e.currentTarget.value})} />
                             <label htmlFor="computers" className="inline">{category.name}</label>
                         </div>
