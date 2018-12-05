@@ -25,38 +25,41 @@ export default class Search extends Component {
         })
     }
 
+    handleCategory = (e) => {
+        this.setState({category: e.currentTarget.value});
+        switch (e.currentTarget.value) {
+            case "Computers":
+                this.setState({categoryPath: "abcat0501000"})
+                break;
+            case "Cameras": 
+                this.setState({categoryPath: "abcat0401000"})
+                break;
+            case "Headphones": 
+                this.setState({categoryPath: "abcat0204000"})
+                break;
+            case "Audio": 
+                this.setState({categoryPath: "pcmcat241600050001"})
+                break;
+            case "Laptops": 
+                this.setState({categoryPath: "abcat0502000"})
+                break;
+            case "Tablets": 
+                this.setState({categoryPath: "pcmcat209000050006"})
+                break;
+            case "Speakers": 
+                this.setState({categoryPath: "pcmcat310200050004"})
+                break;
+            default:
+                this.setState({categoryPath: ""})
+        }
+    }
+
     validateSearch = (e) => {
         e.preventDefault()
-        if (this.state.category === null) {
+        if (this.state.category === null || this.state.category === "") {
             return this.setState({errorMessage: "Please select category"})
         } else if (this.state.keyword === "") {
             return this.setState({errorMessage: "Please enter search term"})
-        } else {
-            switch (this.state.category) {
-                case "Computers":
-                    this.setState({categoryPath: "abcat0501000"})
-                    break;
-                case "Cameras": 
-                    this.setState({categoryPath: "abcat0401000"})
-                    break;
-                case "Headphones": 
-                    this.setState({categoryPath: "abcat0204000"})
-                    break;
-                case "Audio": 
-                    this.setState({categoryPath: "pcmcat241600050001"})
-                    break;
-                case "Laptops": 
-                    this.setState({categoryPath: "abcat0502000"})
-                    break;
-                case "Tablets": 
-                    this.setState({categoryPath: "pcmcat209000050006"})
-                    break;
-                case "Speakers": 
-                    this.setState({categoryPath: "pcmcat310200050004"})
-                    break;
-                default:
-                    this.setState({categoryPath: ""})
-            }
         }
         this.handleSearch()
     }
@@ -70,7 +73,7 @@ export default class Search extends Component {
                 <div className="row mt-3">
                     {categories.map(category => (
                         <div className="col-sm-4" key={categories.indexOf(category)}>
-                            <input type="radio" className="inline mr-3" name="category" value={category} aria-label={category + " category"} onChange={(e) => this.setState({category: e.currentTarget.value})} />
+                            <input type="radio" className="inline mr-3" name="category" value={category} aria-label={category + " category"} onChange={this.handleCategory} />
                             <label htmlFor="computers" className="inline">{category}</label>
                         </div>
                     ))}
