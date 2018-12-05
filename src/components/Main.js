@@ -11,7 +11,6 @@ import Search from './Search';
 export default class Main extends Component {
   state = {
     headerColor: 'linear-gradient(to bottom right, #5b14de, #17d6f7)',
-    headerTextColor: '#ffffff',
     text: ""
   }
 
@@ -39,7 +38,6 @@ export default class Main extends Component {
           <div>
             <Nav
             headerColor={this.state.headerColor}
-            headerTextColor={this.state.headerTextColor}
             updateHeaderColor={this.updateHeaderColor}
             />
             <Route
