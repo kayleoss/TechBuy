@@ -6,6 +6,7 @@ import Home from './Home';
 import { BrowserRouter as Router, Route} from "react-router-dom";
 import {apiKey} from '../apiCredentials/featured';
 import Products from './Products';
+import Search from './Search';
 
 export default class Main extends Component {
   state = {
@@ -69,6 +70,11 @@ export default class Main extends Component {
             path="/audio"
             render={() => <Products category="audio" endpoint={"https://api.bestbuy.com/v1/products(onSale=true&categoryPath.name=sound*)?apiKey=" + apiKey + "&format=json"}/>}
             />
+            <Route
+            path="/featured"
+            render={() => <Products category="Featured Products" endpoint={"https://api.bestbuy.com/v1/products(onSale=true)?apiKey=" + apiKey + "&pageSize=12&format=json"}/>}
+            />
+            <Route exact path="/search" render={() => <Search headerColor={this.state.headerColor} />} />
           </div>
         </Router>
         <Featured />

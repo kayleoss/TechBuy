@@ -22,7 +22,7 @@ export default class Computers extends Component {
         <p className="text-center">Your daily list of best-selling {this.props.category} on sale</p>
         <div className="row products mt-3">
           {this.state.products.map(product => (
-            <div className="col-sm-4 mt-5">
+            <div className="col-sm-4 mt-5" key={product.sku}>
               <Product
                 id={product.sku}
                 name={product.name}
