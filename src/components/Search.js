@@ -21,8 +21,7 @@ export default class Search extends Component {
             if (res.products.length < 1) {
                 return this.setState({errorMessage: "No results found", products: []})
             } 
-            this.setState({products: res.products})
-            this.setState({errorMessage: ""})
+            this.setState({products: res.products, errorMessage: ""})
         })
     }
 
