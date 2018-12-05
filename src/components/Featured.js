@@ -35,7 +35,7 @@ export default class Featured extends Component {
       <div className='grey-background pt-5 pb-5'>
         <div className="container">
           <h3 className="h3 text-center">Featured computers on sale</h3>
-          <p className="text-center">Get them while the price is <b>HOT</b></p>
+          <p className="text-center">Get them while the price is <strong>HOT</strong></p>
             <Slider {...settings}>
             {this.state.products.map(product => {
               return (

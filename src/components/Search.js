@@ -70,14 +70,14 @@ export default class Search extends Component {
                 <div className="row mt-3">
                     {categories.map(category => (
                         <div className="col-sm-4" key={categories.indexOf(category)}>
-                            <input type="radio" className="inline mr-3" name="category" value={category} aria-label="Computers category" onChange={(e) => this.setState({category: e.currentTarget.value})} />
+                            <input type="radio" className="inline mr-3" name="category" value={category} aria-label={category + " category"} onChange={(e) => this.setState({category: e.currentTarget.value})} />
                             <label htmlFor="computers" className="inline">{category}</label>
                         </div>
                     ))}
                 </div>
                 <form className="form-group mt-3" onSubmit={this.validateSearch}>
                     <input onChange={(e) => this.setState({keyword: e.currentTarget.value})} className="form-control inline w-75 mr-3 box-shadow border-0" type="text" name="keyword" placeholder="Keyword search..." aria-label="Enter keyword" required />
-                    <button type="button" onClick={this.validateSearch} className="btn box-shadow border-0 inline text-light small-device-margin-top" style={{background: this.props.headerColor}}>Search</button>
+                    <button type="button" onClick={this.validateSearch} className="btn box-shadow border-0 inline text-light small-device-margin-top" style={{background: this.props.headerColor}} aria-label="Submit button">Search</button>
                     {this.state.loading ? <p className="text-dark mt-3">Searching...</p> : <p className="text-danger mt-3">{this.state.errorMessage}</p>} 
                 </form>
                 <div className="container mt-5">
