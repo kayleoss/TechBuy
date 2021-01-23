@@ -12,7 +12,7 @@ export default class Search extends Component {
 
     handleSearch = () => {
         this.setState({ loading: true })
-        fetch("https://api.bestbuy.com/v1/products(search=" + this.state.keyword + "&categoryPath.id=" + this.state.category + ")?apiKey=" + process.env.REACT_APP_API_KEY + "&sort=name.asc&pageSize=12&format=json")
+        fetch("https://api.bestbuy.com/v1/products(search=" + this.state.keyword + "&categoryPath.id=" + this.state.category + ")?apiKey=" + process.env.REACT_APP_API_KEY + "&format=json")
             .then(res => res.json())
             .then(res => {
                 this.setState({ loading: false })

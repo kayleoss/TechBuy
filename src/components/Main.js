@@ -57,7 +57,7 @@ export default class Main extends Component {
             />
             <Route
               path="/phones"
-              render={() => <Products category="phones" endpoint={"https://api.bestbuy.com/v1/products(search=phone&categoryPath.id=pcmcat209400050001?apiKey=" + process.env.REACT_APP_API_KEY + "&sort=name.asc&pageSize=12&format=json"} />}
+              render={() => <Products category="phones" endpoint={"https://api.bestbuy.com/v1/products(search=cell%20phone&(categoryPath.id=pcmcat209400050001))?apiKey=" + process.env.REACT_APP_API_KEY + "&format=json"} />}
             />
             <Route
               path="/tvs"

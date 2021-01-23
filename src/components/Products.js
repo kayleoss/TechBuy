@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Product from './Product';
 
 export default class Computers extends Component {
@@ -8,8 +8,8 @@ export default class Computers extends Component {
 
   componentDidMount() {
     fetch(this.props.endpoint)
-    .then(res => res.json())
-    .then(res => this.setState({products: res.products}))
+      .then(res => res.json())
+      .then(res => this.setState({ products: res.products }))
   }
 
   render() {
