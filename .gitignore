@@ -19,7 +19,7 @@ yarn-debug.log*
 yarn-error.log*
 
 #api key
-/src/apiCredentials/
+/src/apiCredentials/featured.js
 
 #mac files
 .DS_Store
