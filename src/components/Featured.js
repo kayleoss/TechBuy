@@ -44,7 +44,7 @@ export default class Featured extends Component {
                     <p className="text-info text-center mb-0">SKU: {product.sku}</p>
                     <b className="block w-100 text-center"><span className="text-success">${product.salePrice}</span> - You save: <span className="purple-color">${product.dollarSavings}</span></b>
                     <img src={product.image !== null ? product.image : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png"} className="ml-auto mr-auto block mt-3 mb-3 product-img" alt={product.name} />
-                    <p dangerouslySetInnerHTML={{ __html: product.shortDescription.split(";").splice(1, 6) }}></p>
+                    {product.shortDescription ? <p dangerouslySetInnerHTML={{ __html: product.shortDescription.split(";").splice(1, 6) }}></p> : ""}
                     <a href={product.url} target="_blank" className="cta-link box-shadow block w-50 m-auto text-center pt-2 pb-2" rel="noopener noreferrer">Get it now</a>
                   </div>
                 </div>
